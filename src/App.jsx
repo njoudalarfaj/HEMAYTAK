@@ -1,42 +1,59 @@
-// نستورد مكوّن البطاقة اللي بنيناه من مجلد components
+// 🆕 نستورد useState من React — أداة "الذاكرة" للمكوّن
+import { useState } from 'react'
 import EmergencyCard from './components/EmergencyCard'
-// نستورد مصفوفة الأرقام من ملف البيانات (مصدر الحقيقة الوحيد)
 import emergencyNumbers from './data/emergencyNumbers.json'
 
 function App() {
-  // filter = تصفية: مر على كل عنصر، وخذ بس اللي primary حقه true
-  // النتيجة: مصفوفة جديدة فيها السبع جهات الأساسية فقط (بدون الخدمات الإضافية)
+  // 🆕 حالة القسم الإضافي: showAll القيمة (تبدأ false = مسكّر)، setShowAll طريقة تغييرها
+  const [showAll, setShowAll] = useState(false)
+
+  // الأساسية: primary = true (السبعة)
   const primaryServices = emergencyNumbers.filter(
     (service) => service.primary === true
   )
 
+  // 🆕 الإضافية: primary = false (الثمانية) — لاحظي ! قبل service.primary تعني "مو"
+  const secondaryServices = emergencyNumbers.filter(
+    (service) => !service.primary
+  )
+
   return (
-    // الحاوية الرئيسية: min-h-screen تغطي طول الشاشة | bg-gray-100 خلفية رمادية فاتحة | p-6 حشوة داخلية
     <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-4xl font-bold text-red-600 text-center mb-8">نجدة</h1>
 
-      {/* عنوان الموقع: mb-8 مسافة تحته تفصله عن البطاقات */}
-      <h1 className="text-4xl font-bold text-red-600 text-center mb-8">  نجدة | Najdah </h1>
-
-      {/* شبكة البطاقات (متجاوبة):
-          grid = نظام شبكة
-          grid-cols-1 = عمود واحد (الافتراضي - للجوال)
-          md:grid-cols-2 = عمودين إذا الشاشة متوسطة أو أكبر
-          gap-4 = مسافة بين البطاقات
-          max-w-4xl mx-auto = عرض أقصى للشبكة + توسيطها بالصفحة */}
+      {/* شبكة البطاقات الأساسية — مثل ما هي */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-
-        {/* map = لكل جهة في القائمة المصفاة، أنشئ بطاقة ومرر لها بياناتها:
-            service={service} → تمرير بيانات الجهة للبطاقة (props)
-            key={service.id} → هوية فريدة لكل بطاقة، React يحتاجها لتتبع العناصر المتكررة */}
         {primaryServices.map((service) => (
           <EmergencyCard key={service.id} service={service} />
         ))}
+      </div>
+
+      {/* 🆕 زر فتح/إغلاق القسم الإضافي */}
+      <div className="max-w-4xl mx-auto mt-8">
+        <button
+          type="button"
+          // عند الضغط: اقلب القيمة (كانت false تصير true والعكس) — ! تعني "عكس"
+          onClick={() => setShowAll(!showAll)}
+          className="w-full bg-white border border-gray-300 rounded-xl py-3 text-lg font-bold text-gray-700 hover:bg-gray-50"
+        >
+          {/* النص يتغير حسب الحالة: شرط ? قيمة-لو-صح : قيمة-لو-خطأ */}
+          {showAll ? 'إخفاء الأرقام الإضافية ▲' : 'عرض جميع الأرقام المهمة ▼'}
+        </button>
+
+        {/* 🆕 العرض الشرطي: القسم يظهر فقط إذا showAll = true
+            الصيغة: {شرط && (عناصر)} — إذا الشرط صح اعرض، إذا خطأ لا تعرض شيء */}
+        {showAll && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {secondaryServices.map((service) => (
+              <EmergencyCard key={service.id} service={service} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
 }
 
-// نصدّر المكوّن عشان main.jsx يقدر يستخدمه
 export default App
 
 /*
