@@ -28,15 +28,22 @@ const resources = {
   },
 }
 
+// 🆕 نقرأ اللغة المحفوظة، وإذا ما في (أول زيارة) نبدأ عربي
+const savedLanguage = localStorage.getItem('najdah-language') || 'ar'
+
 i18n
-  .use(initReactI18next) // اربط i18next بـ React
+  .use(initReactI18next)
   .init({
-    resources,           // النصوص اللي فوق
-    lng: 'ar',           // اللغة الافتراضية عند فتح الموقع
-    fallbackLng: 'ar',   // إذا مفتاح ناقص بلغة، ارجع للعربي
+    resources,
+    lng: savedLanguage,   // 🆕 كانت 'ar' ثابتة — صارت من المحفوظ
+    fallbackLng: 'ar',
     interpolation: {
-      escapeValue: false, // React يحمي من الثغرات بنفسه، ما نحتاج حماية مزدوجة
+      escapeValue: false,
     },
   })
+
+  // 🆕 هنا بالضبط — عند بدء التشغيل: اضبط اتجاه الصفحة حسب اللغة المحفوظة
+  document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr'
+  document.documentElement.lang = savedLanguage
 
 export default i18n

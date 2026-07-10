@@ -13,10 +13,11 @@ function App() {
   const isArabic = i18n.language === 'ar'
 
   // 🆕 دالة تبديل اللغة: إذا عربي روح إنجليزي والعكس + اقلب اتجاه الصفحة
-  const toggleLanguage = () => {
+const toggleLanguage = () => {
     const newLang = isArabic ? 'en' : 'ar'
     i18n.changeLanguage(newLang)
-    // نعدل اتجاه الصفحة ولغتها في وسم html (اللي عدلناه يدويًا أول يوم، تذكرين؟)
+    //🆕 يحفظ الاختيار بالمتصفح عشان يتذكره بالزيارة الجاية
+    localStorage.setItem('najdah-language', newLang)
     document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr'
     document.documentElement.lang = newLang
   }
