@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ambulance",
+    "nameAr": "الهلال الأحمر السعودي",
+    "nameEn": "Saudi Red Crescent",
+    "caseAr": "إصابة، إغماء، نزيف، أو حالة صحية طارئة",
+    "caseEn": "Injury, fainting, bleeding, or medical emergency",
+    "number": "997",
+    "icon": "ambulance",
+    "primary": true,
+    "priority": 1
+  },
+  {
+    "id": "civil-defense",
+    "nameAr": "الدفاع المدني",
+    "nameEn": "Civil Defense",
+    "caseAr": "حريق، احتجاز، انهيار، أو حالة إنقاذ",
+    "caseEn": "Fire, entrapment, collapse, or rescue emergency",
+    "number": "998",
+    "icon": "flame",
+    "primary": true,
+    "priority": 2
+  },
+  {
+    "id": "police",
+    "nameAr": "الشرطة",
+    "nameEn": "Police",
+    "caseAr": "اعتداء، سرقة، تهديد، أو خطر أمني",
+    "caseEn": "Assault, theft, threat, or security emergency",
+    "number": "999",
+    "icon": "shield",
+    "primary": true,
+    "priority": 3
+  },
+  {
+    "id": "traffic",
+    "nameAr": "المرور",
+    "nameEn": "Traffic Police",
+    "caseAr": "حادث مروري، إصابات، أو تعطّل يسبب خطرًا على الطريق",
+    "caseEn": "Traffic accident, injuries, or a dangerous road obstruction",
+    "number": "993",
+    "icon": "car-front",
+    "primary": true,
+    "priority": 4
+  },
+  {
+    "id": "road-security",
+    "nameAr": "أمن الطرق",
+    "nameEn": "Road Security",
+    "caseAr": "حادث، خطر، أو طلب مساعدة على الطرق السريعة وبين المدن",
+    "caseEn": "Accident, danger, or assistance needed on highways and intercity roads",
+    "number": "996",
+    "icon": "route",
+    "primary": true,
+    "priority": 5
+  },
+  {
+    "id": "border-guard",
+    "nameAr": "حرس الحدود",
+    "nameEn": "Border Guard",
+    "caseAr": "غرق، فقدان شخص، أو حالة طارئة في البحر أو قرب الحدود",
+    "caseEn": "Drowning, missing person, or emergency at sea or near borders",
+    "number": "994",
+    "icon": "waves",
+    "primary": true,
+    "priority": 6
+  },
+  {
+    "id": "unified-emergency",
+    "nameAr": "رقم الطوارئ الموحد",
+    "nameEn": "Unified Emergency Number",
+    "caseAr": "بلاغ أمني موحد في المناطق المشمولة بالخدمة",
+    "caseEn": "Unified security emergency in covered regions",
+    "number": "911",
+    "icon": "phone-call",
+    "primary": true,
+    "priority": 7
+  },
+  {
+    "id": "family-violence",
+    "nameAr": "بلاغات العنف الأسري",
+    "nameEn": "Domestic Violence Reporting",
+    "caseAr": "عنف أسري، إيذاء، إساءة معاملة، أو طلب حماية",
+    "caseEn": "Domestic violence, abuse, mistreatment, or protection request",
+    "number": "1919",
+    "icon": "heart-handshake",
+    "primary": false,
+    "priority": 8
+  },
+  {
+    "id": "child-helpline",
+    "nameAr": "خط مساندة الطفل",
+    "nameEn": "Child Helpline",
+    "caseAr": "طفل يحتاج إلى مساعدة، حماية، دعم، أو استشارة",
+    "caseEn": "A child needs help, protection, support, or advice",
+    "number": "116111",
+    "icon": "baby",
+    "primary": false,
+    "priority": 9
+  },
+  {
+    "id": "health",
+    "nameAr": "وزارة الصحة",
+    "nameEn": "Ministry of Health",
+    "caseAr": "استشارة طبية، بلاغ صحي، أو توجيه للخدمة الصحية المناسبة",
+    "caseEn": "Medical advice, health report, or guidance to the appropriate health service",
+    "number": "937",
+    "icon": "stethoscope",
+    "primary": false,
+    "priority": 10
+  },
+  {
+    "id": "najm",
+    "nameAr": "نجم لخدمات التأمين",
+    "nameEn": "Najm for Insurance Services",
+    "caseAr": "حادث مروري بسيط مشمول بالتأمين ولا توجد فيه إصابات",
+    "caseEn": "Minor insured traffic accident with no injuries",
+    "number": "199033",
+    "icon": "car",
+    "primary": false,
+    "priority": 11
+  },
+  {
+    "id": "electricity",
+    "nameAr": "طوارئ الكهرباء",
+    "nameEn": "Electricity Emergency",
+    "caseAr": "تماس كهربائي، أسلاك مكشوفة، خطر كهربائي، أو انقطاع",
+    "caseEn": "Electrical fault, exposed wires, electrical hazard, or outage",
+    "number": "933",
+    "icon": "zap",
+    "primary": false,
+    "priority": 12
+  },
+  {
+    "id": "water",
+    "nameAr": "طوارئ المياه",
+    "nameEn": "Water Emergency",
+    "caseAr": "تسرب مياه، طفح صرف صحي، أو انقطاع المياه",
+    "caseEn": "Water leak, sewage overflow, or water outage",
+    "number": "939",
+    "icon": "droplets",
+    "primary": false,
+    "priority": 13
+  },
+  {
+    "id": "municipality",
+    "nameAr": "البلاغات البلدية",
+    "nameEn": "Municipal Reports",
+    "caseAr": "حفرة، إنارة شارع، نفايات، خطر صحي، أو بلاغ بلدي",
+    "caseEn": "Pothole, streetlight, waste, public-health hazard, or municipal report",
+    "number": "940",
+    "icon": "building-2",
+    "primary": false,
+    "priority": 14
+  },
+  {
+    "id": "narcotics-control",
+    "nameAr": "مكافحة المخدرات",
+    "nameEn": "Narcotics Control",
+    "caseAr": "بلاغ عن مخدرات، ترويج، تهريب، أو نشاط مشبوه",
+    "caseEn": "Report drugs, dealing, smuggling, or suspicious narcotics activity",
+    "number": "995",
+    "icon": "shield-alert",
+    "primary": false,
+    "priority": 15
+  }
+]
