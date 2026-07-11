@@ -7,6 +7,7 @@
     "caseEn": "Injury, fainting, bleeding, or medical emergency",
     "number": "997",
     "icon": "ambulance",
+    "color": "red",
     "primary": true,
     "priority": 1
   },
@@ -18,6 +19,7 @@
     "caseEn": "Fire, entrapment, collapse, or rescue emergency",
     "number": "998",
     "icon": "flame",
+    "color": "orange",
     "primary": true,
     "priority": 2
   },
@@ -29,6 +31,7 @@
     "caseEn": "Assault, theft, threat, or security emergency",
     "number": "999",
     "icon": "shield",
+    "color": "blue",
     "primary": true,
     "priority": 3
   },
@@ -40,6 +43,7 @@
     "caseEn": "Traffic accident, injuries, or a dangerous road obstruction",
     "number": "993",
     "icon": "car-front",
+    "color": "yellow",
     "primary": true,
     "priority": 4
   },
@@ -51,6 +55,7 @@
     "caseEn": "Accident, danger, or assistance needed on highways and intercity roads",
     "number": "996",
     "icon": "route",
+    "color": "yellow",
     "primary": true,
     "priority": 5
   },
@@ -62,6 +67,7 @@
     "caseEn": "Drowning, missing person, or emergency at sea or near borders",
     "number": "994",
     "icon": "waves",
+    "color": "cyan",
     "primary": true,
     "priority": 6
   },
@@ -73,6 +79,7 @@
     "caseEn": "Unified security emergency in covered regions",
     "number": "911",
     "icon": "phone-call",
+    "color": "blue",
     "primary": true,
     "priority": 7
   },
@@ -84,6 +91,7 @@
     "caseEn": "Domestic violence, abuse, mistreatment, or protection request",
     "number": "1919",
     "icon": "heart-handshake",
+    "color": "purple",
     "primary": false,
     "priority": 8
   },
@@ -95,6 +103,7 @@
     "caseEn": "A child needs help, protection, support, or advice",
     "number": "116111",
     "icon": "baby",
+    "color": "purple",
     "primary": false,
     "priority": 9
   },
@@ -106,6 +115,7 @@
     "caseEn": "Medical advice, health report, or guidance to the appropriate health service",
     "number": "937",
     "icon": "stethoscope",
+    "color": "green",
     "primary": false,
     "priority": 10
   },
@@ -117,6 +127,7 @@
     "caseEn": "Minor insured traffic accident with no injuries",
     "number": "199033",
     "icon": "car",
+    "color": "gray",
     "primary": false,
     "priority": 11
   },
@@ -128,6 +139,7 @@
     "caseEn": "Electrical fault, exposed wires, electrical hazard, or outage",
     "number": "933",
     "icon": "zap",
+    "color": "gray",
     "primary": false,
     "priority": 12
   },
@@ -139,6 +151,7 @@
     "caseEn": "Water leak, sewage overflow, or water outage",
     "number": "939",
     "icon": "droplets",
+    "color": "gray",
     "primary": false,
     "priority": 13
   },
@@ -150,6 +163,7 @@
     "caseEn": "Pothole, streetlight, waste, public-health hazard, or municipal report",
     "number": "940",
     "icon": "building-2",
+    "color": "gray",
     "primary": false,
     "priority": 14
   },
@@ -161,6 +175,7 @@
     "caseEn": "Report drugs, dealing, smuggling, or suspicious narcotics activity",
     "number": "995",
     "icon": "shield-alert",
+    "color": "gray",
     "primary": false,
     "priority": 15
   }
