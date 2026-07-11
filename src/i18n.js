@@ -6,7 +6,7 @@ import { initReactI18next } from 'react-i18next'
 const resources = {
   ar: {
     translation: {
-      appTitle: 'نجدة',
+      appTitle: 'حمايتك',
       subtitle: 'اختر الحالة المناسبة لبدء الاتصال مباشرة',
       callNow: 'اتصل الآن',
       copy: 'نسخ',
@@ -17,7 +17,7 @@ const resources = {
   },
   en: {
     translation: {
-      appTitle: 'Najdah',
+      appTitle: 'Hemaytak',
       subtitle: 'Choose your emergency to call directly',
       callNow: 'Call Now',
       copy: 'Copy',
@@ -29,7 +29,7 @@ const resources = {
 }
 
 // 🆕 نقرأ اللغة المحفوظة، وإذا ما في (أول زيارة) نبدأ عربي
-const savedLanguage = localStorage.getItem('najdah-language') || 'ar'
+const savedLanguage = localStorage.getItem('hemaytak-language') || 'ar'
 
 i18n
   .use(initReactI18next)

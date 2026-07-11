@@ -24,7 +24,7 @@ function App() {
     setTimeout(() => {
       i18n.changeLanguage(newLang)
       // يحفظ الاختيار بالمتصفح عشان يتذكره بالزيارة الجاية
-      localStorage.setItem('najdah-language', newLang)
+      localStorage.setItem('hemaytak-language', newLang)
       document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr'
       document.documentElement.lang = newLang
 
