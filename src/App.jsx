@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// 🆕 useTranslation: أداة الترجمة — t للنصوص وi18n للتحكم باللغة
+// useTranslation: أداة الترجمة — t للنصوص وi18n للتحكم باللغة
 import { useTranslation } from 'react-i18next'
 import EmergencyCard from './components/EmergencyCard'
 import emergencyNumbers from './data/emergencyNumbers.json'
@@ -7,20 +7,30 @@ import Header from './components/Header'
 
 function App() {
   const [showAll, setShowAll] = useState(false)
-  // 🆕 نطلب أدوات الترجمة
+  // نطلب أدوات الترجمة
   const { t, i18n } = useTranslation()
 
-  // 🆕 هل اللغة الحالية عربي؟ نحتاجها بأكثر من مكان
+  // هل اللغة الحالية عربي؟ نحتاجها بأكثر من مكان
   const isArabic = i18n.language === 'ar'
 
-  // 🆕 دالة تبديل اللغة: إذا عربي روح إنجليزي والعكس + اقلب اتجاه الصفحة
-const toggleLanguage = () => {
+  // تبديل اللغة مع انتقال ناعم: تلاشي ← تبديل خلف الستارة ← ظهور
+  const toggleLanguage = () => {
     const newLang = isArabic ? 'en' : 'ar'
-    i18n.changeLanguage(newLang)
-    //🆕 يحفظ الاختيار بالمتصفح عشان يتذكره بالزيارة الجاية
-    localStorage.setItem('najdah-language', newLang)
-    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr'
-    document.documentElement.lang = newLang
+
+    // 1) نخفي الصفحة بنعومة (كلاس CSS يفعّل الشفافية)
+    document.body.classList.add('lang-switching')
+
+    // 2) بعد اكتمال التلاشي (250ms): نبدل اللغة والاتجاه والصفحة مخفية
+    setTimeout(() => {
+      i18n.changeLanguage(newLang)
+      // يحفظ الاختيار بالمتصفح عشان يتذكره بالزيارة الجاية
+      localStorage.setItem('najdah-language', newLang)
+      document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr'
+      document.documentElement.lang = newLang
+
+      // 3) نرجع الصفحة تظهر بنعومة
+      document.body.classList.remove('lang-switching')
+    }, 250)
   }
 
   const primaryServices = emergencyNumbers.filter(
@@ -30,10 +40,10 @@ const toggleLanguage = () => {
     (service) => !service.primary
   )
 
- return (
-    <main className="min-h-screen bg-gradient-to-b from-red-50 via-gray-50 to-white p-6">
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-gray-100 p-6">
 
-      {/* الهيدر الجديد: شعار + عنوان + زر لغة — كلهم بمكوّن واحد */}
+      {/* الهيدر: شعار + عنوان + زر لغة — كلهم بمكوّن واحد */}
       <Header isArabic={isArabic} onToggleLanguage={toggleLanguage} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -46,7 +56,7 @@ const toggleLanguage = () => {
         <button
           type="button"
           onClick={() => setShowAll(!showAll)}
-          className="w-full bg-white border border-gray-300 rounded-xl py-3 text-lg font-bold text-gray-700 hover:bg-gray-50"
+          className="w-full bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl py-4 text-lg font-bold text-gray-700 shadow-sm transition-all hover:shadow-md hover:bg-white"
         >
           {showAll ? t('hideAll') : t('showAll')}
         </button>

@@ -39,6 +39,8 @@ const colorMap = {
   'gray': 'bg-gray-100 text-gray-600',
 }
 
+
+
 function EmergencyCard({ service }) {
   const [copied, setCopied] = useState(false)
   const { t, i18n } = useTranslation()
@@ -49,6 +51,7 @@ function EmergencyCard({ service }) {
   const nameText = isArabic ? service.nameAr : service.nameEn
   const Icon = iconMap[service.icon] || Phone
   const colorClasses = colorMap[service.color] || colorMap['gray']
+  
 
   const handleCopy = () => {
     navigator.clipboard.writeText(service.number)
@@ -69,7 +72,7 @@ function EmergencyCard({ service }) {
       {/* وصف الحالة بخط أصغر + الرقم الضخم */}
       <div className="flex items-end justify-between gap-3">
         <p className="text-sm text-gray-600 leading-relaxed">{caseText}</p>
-        <span className="text-4xl font-black text-gray-900 tracking-tight shrink-0" dir="ltr">
+        <span className="text-3xl font-black text-gray-900 tracking-tight shrink-0" dir="ltr">
           {service.number}
         </span>
       </div>

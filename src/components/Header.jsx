@@ -7,35 +7,37 @@ import logoName from '../assets/logo_name.png'
 function Header({ isArabic, onToggleLanguage }) {
   const { t } = useTranslation()
 
-  return (
-    <header className="max-w-4xl mx-auto mb-8">
-      {/* الصف العلوي: الشعار يمين وزر اللغة يسار (ينعكسون تلقائيًا مع الاتجاه) */}
-      <div className="flex items-center justify-between mb-6">
+    return (
+    <header className="max-w-4xl mx-auto mb-10">
+      {/* الصف العلوي: أيقونة الشعار في طرف، وزر اللغة بالطرف الثاني */}
+      <div className="flex items-center justify-between mb-2">
+        <img src={logoIcon} alt="" className="h-14 w-14 object-contain" />
 
-        {/* 🆕 الشعار: أيقونتنا + الاسم الكتابي من تصميمنا الخاص */}
-        <div className="flex items-center gap-3">
-          <img src={logoIcon} alt="" className="h-14 w-14 object-contain" />
-          <img
-            src={logoName}
-            alt={isArabic ? 'نجدة' : 'Najdah'}
-            className="h-12 object-contain"
-          />
-        </div>
-
-        {/* زر اللغة — مثل ما هو */}
         <button
           type="button"
           onClick={onToggleLanguage}
-          className="bg-white border border-gray-300 rounded-xl px-4 py-2 font-bold text-gray-700 hover:bg-gray-50"
+          className="bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl px-5 py-2.5 font-bold text-gray-700 shadow-sm transition-all hover:shadow-md hover:bg-white"
         >
           {isArabic ? 'English' : 'العربية'}
         </button>
       </div>
 
-      {/* السطر التوجيهي بالوسط */}
-      <p className="text-center text-gray-600 text-lg">{t('subtitle')}</p>
+      {/* الشعار الكتابي: كبير بمنتصف الصفحة — بطل المقدمة */}
+      <div className="flex flex-col items-center gap-4">
+        <img
+          src={logoName}
+          alt={isArabic ? 'نجدة' : 'Najdah'}
+          className="h-36 md:h-44 object-contain"
+        />
+
+        {/* السطر التوجيهي تحته مباشرة */}
+       <p className="text-center text-gray-600 text-lg font-semibold tracking-wide">
+          {t('subtitle')}
+        </p>
+      </div>
     </header>
   )
+  
 }
 
 export default Header

@@ -1,2 +1,16 @@
 /* استيراد كل أدوات Tailwind للمشروع — بدونه الكلاسات ما تشتغل */
 @import "tailwindcss";
+
+/* انتقال ناعم لتبديل اللغة: الصفحة تتلاشى وترجع */
+body {
+  transition: opacity 0.25s ease;
+}
+
+body.lang-switching {
+  opacity: 0;
+}
+
+/* الخط الأساسي للموقع كله — يتماشى مع خط الشعار */
+body {
+  font-family: 'Baloo Bhaijaan 2', system-ui, sans-serif;
+}
