@@ -1,6 +1,12 @@
 <div align="center">
 
-<img src="src/assets/logo_name.png" alt="Hemaytak | حمايتك" width="400" />
+<table align="center">
+  <tr>
+    <td align="center" bgcolor="white">
+      <img src="src/assets/logo_name.png" alt="Hemaytak | حمايتك" width="400" />
+    </td>
+  </tr>
+</table>
 
 # حمايتك | HEMAYTAK
 
@@ -193,6 +199,6 @@ Hemaytak is a static, privacy-focused application:
 <div align="center">
 
 Built with ❤️ by **[Njoud Alarfaj](https://github.com/njoudalarfaj)**  
-Computer Science Graduate · Early-Career AI Engineer
+Computer Science · Early-Career AI Engineer
 
 </div>
