@@ -77,7 +77,7 @@ function EmergencyCard({ service }) {
       <div className="flex items-center gap-1.5">
         <div className="bg-gray-100 border border-gray-200 rounded-full px-4 py-1.5 flex items-baseline gap-2">
           <span className="text-xs font-semibold text-gray-500">
-            {t('emergencyNumber')}
+            {service.primary ? t('emergencyNumber') : t('serviceNumber')}
           </span>
           <span className="text-2xl font-black text-gray-900 tracking-tight" dir="ltr">
             {service.number}

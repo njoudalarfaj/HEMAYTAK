@@ -16,6 +16,7 @@ const resources = {
       emergencyNumber: 'رقم الطوارئ',
       lastReviewed: 'آخر مراجعة للأرقام: يوليو 2026',
       sourceNote: 'تم التحقق من الأرقام عبر المصادر الرسمية في المملكة العربية السعودية',
+      serviceNumber: 'رقم الخدمة',
     },
   },
   en: {
@@ -30,6 +31,7 @@ const resources = {
       emergencyNumber: 'Emergency No.',
       lastReviewed: 'Numbers last reviewed: July 2026',
       sourceNote: 'Verified through official sources in Saudi Arabia',
+      serviceNumber: 'Service No.',
     },
   },
 }
