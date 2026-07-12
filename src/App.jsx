@@ -5,6 +5,9 @@ import EmergencyCard from './components/EmergencyCard'
 import emergencyNumbers from './data/emergencyNumbers.json'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { getDirection } from './languages'
+
+
 function App() {
   const [showAll, setShowAll] = useState(false)
   // نطلب أدوات الترجمة
@@ -14,21 +17,23 @@ function App() {
   const isArabic = i18n.language === 'ar'
 
   // تبديل اللغة مع انتقال ناعم: تلاشي ← تبديل خلف الستارة ← ظهور
-  const toggleLanguage = () => {
-    const newLang = isArabic ? 'en' : 'ar'
+  // تبديل اللغة لأي لغة مختارة — مع الانتقال الناعم
+  const changeLanguage = (newLang) => {
+    // إذا اختار نفس اللغة الحالية، لا تسوي شيء
+    if (newLang === i18n.language) return
 
-    // 1) نخفي الصفحة بنعومة (كلاس CSS يفعّل الشفافية)
+    // 1) تلاشي
     document.body.classList.add('lang-switching')
 
-    // 2) بعد اكتمال التلاشي (250ms): نبدل اللغة والاتجاه والصفحة مخفية
+    // 2) بعد اكتمال التلاشي: بدل اللغة والاتجاه خلف الستارة
     setTimeout(() => {
       i18n.changeLanguage(newLang)
-      // يحفظ الاختيار بالمتصفح عشان يتذكره بالزيارة الجاية
       localStorage.setItem('hemaytak-language', newLang)
-      document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr'
+      // الاتجاه من ملف اللغات: ar وur يمين، الباقي يسار
+      document.documentElement.dir = getDirection(newLang)
       document.documentElement.lang = newLang
 
-      // 3) نرجع الصفحة تظهر بنعومة
+      // 3) ظهور
       document.body.classList.remove('lang-switching')
     }, 250)
   }
@@ -45,7 +50,7 @@ function App() {
       <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-gray-100 p-6">
 
         {/* الهيدر: شعار + عنوان + زر لغة — كلهم بمكوّن واحد */}
-        <Header isArabic={isArabic} onToggleLanguage={toggleLanguage} />
+        <Header currentLang={i18n.language} onSelectLanguage={changeLanguage} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {primaryServices.map((service) => (
