@@ -3,7 +3,7 @@
 <table align="center">
   <tr>
     <td align="center" bgcolor="white">
-      <img src="C:\Users\D\Documents\MINE\MY PROJECTS\HEMAYTAK\src\assets\logo_name_white.jpeg" alt="Hemaytak | حمايتك" width="400" />
+     <img src="src/assets/logo_name_white.jpeg" alt="Hemaytak | حمايتك" width="400"/>
     </td>
   </tr>
 </table>
