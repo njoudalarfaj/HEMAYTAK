@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import EmergencyCard from './components/EmergencyCard'
 import emergencyNumbers from './data/emergencyNumbers.json'
 import Header from './components/Header'
-
+import Footer from './components/Footer'
 function App() {
   const [showAll, setShowAll] = useState(false)
   // نطلب أدوات الترجمة
@@ -41,35 +41,38 @@ function App() {
   )
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-gray-100 p-6">
+    <>
+      <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-gray-100 p-6">
 
-      {/* الهيدر: شعار + عنوان + زر لغة — كلهم بمكوّن واحد */}
-      <Header isArabic={isArabic} onToggleLanguage={toggleLanguage} />
+        {/* الهيدر: شعار + عنوان + زر لغة — كلهم بمكوّن واحد */}
+        <Header isArabic={isArabic} onToggleLanguage={toggleLanguage} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-        {primaryServices.map((service) => (
-          <EmergencyCard key={service.id} service={service} />
-        ))}
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          {primaryServices.map((service) => (
+            <EmergencyCard key={service.id} service={service} />
+          ))}
+        </div>
 
-      <div className="max-w-4xl mx-auto mt-8">
-        <button
-          type="button"
-          onClick={() => setShowAll(!showAll)}
-          className="w-full bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl py-4 text-lg font-bold text-gray-700 shadow-sm transition-all hover:shadow-md hover:bg-white"
-        >
-          {showAll ? t('hideAll') : t('showAll')}
-        </button>
+        <div className="max-w-4xl mx-auto mt-8">
+          <button
+            type="button"
+            onClick={() => setShowAll(!showAll)}
+            className="w-full bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl py-4 text-lg font-bold text-gray-700 shadow-sm transition-all hover:shadow-md hover:bg-white"
+          >
+            {showAll ? t('hideAll') : t('showAll')}
+          </button>
 
-        {showAll && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            {secondaryServices.map((service) => (
-              <EmergencyCard key={service.id} service={service} />
-            ))}
-          </div>
-        )}
-      </div>
-    </main>
+          {showAll && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              {secondaryServices.map((service) => (
+                <EmergencyCard key={service.id} service={service} />
+              ))}
+            </div>
+          )}
+        </div>
+      </main>
+      <Footer />
+    </>
   )
 }
 

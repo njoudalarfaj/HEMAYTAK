@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-// أيقونات Lucide المستخدمة بالبطاقات
+// أيقونات Lucide — Phone للاتصال وCopy وCheck للنسخ
 import {
   Ambulance, Flame, Shield, CarFront, Route, Waves, PhoneCall,
   HeartHandshake, Baby, Stethoscope, Car, Zap, Droplets,
-  Building2, ShieldAlert, Phone,
+  Building2, ShieldAlert, Phone, Copy, Check,
 } from 'lucide-react'
 
 // خريطة: اسم الأيقونة بالـ JSON ← المكوّن الفعلي
@@ -27,7 +27,7 @@ const iconMap = {
   'shield-alert': ShieldAlert,
 }
 
-// خريطة الألوان: اسم اللون بالـ JSON ← كلاسات Tailwind (مكتوبة كاملة عشان Tailwind يشوفها)
+// خريطة الألوان: اسم اللون بالـ JSON ← كلاسات Tailwind
 const colorMap = {
   'red': 'bg-red-100 text-red-600',
   'orange': 'bg-orange-100 text-orange-600',
@@ -39,8 +39,6 @@ const colorMap = {
   'gray': 'bg-gray-100 text-gray-600',
 }
 
-
-
 function EmergencyCard({ service }) {
   const [copied, setCopied] = useState(false)
   const { t, i18n } = useTranslation()
@@ -51,7 +49,6 @@ function EmergencyCard({ service }) {
   const nameText = isArabic ? service.nameAr : service.nameEn
   const Icon = iconMap[service.icon] || Phone
   const colorClasses = colorMap[service.color] || colorMap['gray']
-  
 
   const handleCopy = () => {
     navigator.clipboard.writeText(service.number)
@@ -60,46 +57,59 @@ function EmergencyCard({ service }) {
   }
 
   return (
-    <div className="bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl shadow-lg shadow-gray-200/50 p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-      {/* صف العنوان: أيقونة + اسم الجهة (العنوان الرئيسي) */}
-      <div className="flex items-center gap-3">
-        <div className={`${colorClasses} rounded-2xl p-3 shrink-0`}>
-          <Icon size={28} />
+    // البطاقة: إطار رمادي خفيف + ظل ضيق + توهج أحمر خارجي عند hover
+    <div className="bg-white/80 backdrop-blur-xl border border-gray-200/80 rounded-2xl shadow-sm p-6 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:border-red-300 hover:shadow-xl hover:shadow-red-100">
+
+     {/* صف العنوان: أيقونة + عمود فيه (اسم الجهة فوق ووصف الحالة تحته مباشرة) */}
+      <div className="flex items-start gap-3">
+        <div className={`${colorClasses} rounded-xl p-3 shrink-0`}>
+          <Icon size={26} />
         </div>
-        <h2 className="text-lg font-bold text-gray-900 leading-snug">{nameText}</h2>
+        <div>
+          <h2 className="text-lg font-bold text-gray-900 leading-snug">{nameText}</h2>
+          <p className="text-[14px] text-gray-600 leading-relaxed mt-0.5">{caseText}</p>
+        </div>
       </div>
 
-      {/* وصف الحالة بخط أصغر + الرقم الضخم */}
-      <div className="flex items-end justify-between gap-3">
-        <p className="text-sm text-gray-600 leading-relaxed">{caseText}</p>
-        <span className="text-3xl font-black text-gray-900 tracking-tight shrink-0" dir="ltr">
-          {service.number}
-        </span>
-      </div>
+      
 
-      {/* الأزرار */}
-      <div className="flex gap-2">
-        <a
-          href={`tel:${service.number}`}
-          aria-label={`${t('callNow')} ${nameText} ${service.number}`}
-          className="flex-1 bg-red-600 text-white text-center text-lg font-bold rounded-2xl py-3.5 transition-colors hover:bg-red-700 active:bg-red-800"
-        >
-          {t('callNow')}
-        </a>
-
+      {/* صف الشارة: الرقم بغلاف رمادي هادي + أيقونة النسخ */}
+      <div className="flex items-center gap-1.5">
+        <div className="bg-gray-100 border border-gray-200 rounded-full px-4 py-1.5 flex items-baseline gap-2">
+          <span className="text-xs font-semibold text-gray-500">
+            {t('emergencyNumber')}
+          </span>
+          <span className="text-2xl font-black text-gray-900 tracking-tight" dir="ltr">
+            {service.number}
+          </span>
+        </div>
         <button
           type="button"
           onClick={handleCopy}
           aria-label={`${t('copy')} ${nameText} ${service.number}`}
+          title={copied ? t('copied') : t('copy')}
           className={
             copied
-              ? 'bg-green-100 text-green-700 rounded-2xl px-5 font-bold transition-colors'
-              : 'bg-gray-100 text-gray-600 rounded-2xl px-5 font-bold transition-colors hover:bg-gray-200'
+              ? 'text-green-600 p-1.5 rounded-lg transition-colors'
+              : 'text-gray-400 p-1.5 rounded-lg transition-colors hover:text-gray-600 hover:bg-gray-100'
           }
         >
-          {copied ? t('copied') : t('copy')}
+          {copied ? <Check size={18} /> : <Copy size={18} />}
         </button>
       </div>
+
+      {/* خط فاصل خفيف قبل منطقة الزر */}
+      <hr className="border-gray-100" />
+
+      {/* زر الاتصال: أيقونة هاتف + يصغر عند الضغط */}
+      <a
+        href={`tel:${service.number}`}
+        aria-label={`${t('callNow')} ${nameText} ${service.number}`}
+        className="flex items-center justify-center gap-2 bg-red-600 text-white text-base font-bold rounded-xl py-2.5 shadow-sm shadow-red-200 transition-all hover:bg-red-700 active:scale-[0.98]"
+      >
+        <Phone size={18} />
+        {t('callNow')}
+      </a>
     </div>
   )
 }

@@ -7,12 +7,15 @@ const resources = {
   ar: {
     translation: {
       appTitle: 'حمايتك',
-      subtitle: 'اختر الحالة المناسبة لبدء الاتصال مباشرة',
+      subtitle: 'اختر الحالة الطارئة للاتصال مباشرة',
       callNow: 'اتصل الآن',
       copy: 'نسخ',
       copied: 'تم النسخ ✓',
       showAll: 'عرض جميع الأرقام المهمة ▼',
       hideAll: 'إخفاء الأرقام الإضافية ▲',
+      emergencyNumber: 'رقم الطوارئ',
+      lastReviewed: 'آخر مراجعة للأرقام: يوليو 2026',
+      sourceNote: 'تم التحقق من الأرقام عبر المصادر الرسمية في المملكة العربية السعودية',
     },
   },
   en: {
@@ -24,6 +27,9 @@ const resources = {
       copied: 'Copied ✓',
       showAll: 'Show all important numbers ▼',
       hideAll: 'Hide additional numbers ▲',
+      emergencyNumber: 'Emergency No.',
+      lastReviewed: 'Numbers last reviewed: July 2026',
+      sourceNote: 'Verified through official sources in Saudi Arabia',
     },
   },
 }

@@ -9,10 +9,8 @@ function Header({ isArabic, onToggleLanguage }) {
 
     return (
     <header className="max-w-4xl mx-auto mb-10">
-      {/* الصف العلوي: أيقونة الشعار في طرف، وزر اللغة بالطرف الثاني */}
-      <div className="flex items-center justify-between mb-2">
-        <img src={logoIcon} alt="" className="h-14 w-14 object-contain" />
-
+     {/* الصف العلوي: الأيقونة وزر اللغة متجاورين في طرف واحد */}
+      <div className="flex items-center justify-end gap-3 mb-2">
         <button
           type="button"
           onClick={onToggleLanguage}
@@ -20,6 +18,7 @@ function Header({ isArabic, onToggleLanguage }) {
         >
           {isArabic ? 'English' : 'العربية'}
         </button>
+        <img src={logoIcon} alt="" className="h-12 w-12 object-contain" />
       </div>
 
       {/* الشعار الكتابي: كبير بمنتصف الصفحة — بطل المقدمة */}
@@ -31,7 +30,7 @@ function Header({ isArabic, onToggleLanguage }) {
         />
 
         {/* السطر التوجيهي تحته مباشرة */}
-       <p className="text-center text-gray-600 text-lg font-semibold tracking-wide">
+       <p className="text-center text-slate-800 text-lg font-semibold">
           {t('subtitle')}
         </p>
       </div>
