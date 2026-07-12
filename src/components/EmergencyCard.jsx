@@ -45,8 +45,11 @@ function EmergencyCard({ service }) {
 
   // حسب اللغة: نقرأ الحقول العربية أو الإنجليزية
   const isArabic = i18n.language === 'ar'
-  const caseText = isArabic ? service.caseAr : service.caseEn
-  const nameText = isArabic ? service.nameAr : service.nameEn
+// نقرأ النص بلغة الواجهة الحالية — وإن ما وجدت الترجمة نرجع للعربي ثم للبنية القديمة
+// رمز اللغة الأساسي: en-US تصير en
+  const lang = i18n.language?.split('-')[0]
+  const caseText = service.case?.[lang] || (isArabic ? service.caseAr : service.caseEn)
+  const nameText = service.name?.[lang] || (isArabic ? service.nameAr : service.nameEn)
   const Icon = iconMap[service.icon] || Phone
   const colorClasses = colorMap[service.color] || colorMap['gray']
 
