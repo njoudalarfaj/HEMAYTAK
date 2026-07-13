@@ -178,5 +178,17 @@
     "color": "gray",
     "primary": false,
     "priority": 15
+  },
+  {
+    "id": "commerce",
+    "nameAr": "وزارة التجارة",
+    "nameEn": "Ministry of Commerce",
+    "caseAr": "غش تجاري · مخالفة متجر · شكوى مستهلك · تجارة إلكترونية",
+    "caseEn": "Commercial fraud · Store violation · Consumer complaint · E-commerce report",
+    "number": "1900",
+    "icon": "shopping-bag",
+    "color": "gray",
+    "primary": false,
+    "priority": 16
   }
 ]

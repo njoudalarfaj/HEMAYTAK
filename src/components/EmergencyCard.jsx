@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import {
   Ambulance, Flame, Shield, CarFront, Route, Waves, PhoneCall,
   HeartHandshake, Baby, Stethoscope, Car, Zap, Droplets,
-  Building2, ShieldAlert, Phone, Copy, Check,
+  Building2, ShieldAlert, Phone, Copy, Check, ShoppingBag,
 } from 'lucide-react'
 
 // خريطة: اسم الأيقونة بالـ JSON ← المكوّن الفعلي
@@ -25,6 +25,7 @@ const iconMap = {
   'droplets': Droplets,
   'building-2': Building2,
   'shield-alert': ShieldAlert,
+  'shopping-bag': ShoppingBag,
 }
 
 // خريطة الألوان: اسم اللون بالـ JSON ← كلاسات Tailwind
