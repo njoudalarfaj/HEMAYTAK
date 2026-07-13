@@ -22,6 +22,8 @@ const resources = {
       termsLink: 'شروط الاستخدام',
       privacyLink: 'سياسة الخصوصية',
       contactLink: 'تواصل معنا',
+      copyright: '© 2026 حمايتك | HEMAYTAK. جميع الحقوق محفوظة.',
+      copyrightNote: 'لا يجوز نسخ أو إعادة استخدام اسم المنصة أو شعارها أو تصميمها أو محتواها البرمجي دون إذن مسبق.',
       termsText: `حمايتك منصة معلوماتية مستقلة تهدف إلى تسهيل الوصول إلى أرقام الطوارئ والخدمات العامة في المملكة العربية السعودية، وليست جهة حكومية أو خدمة طوارئ رسمية.
 
 يلتزم المستخدم باستخدام الأرقام للأغراض المخصصة لها فقط، ويتحمل المستخدم مسؤولية أي بلاغ كاذب أو اتصال عبثي أو استخدام غير مشروع، وفقًا للأنظمة المعمول بها في المملكة العربية السعودية.
@@ -31,6 +33,13 @@ const resources = {
 تعمل منصة حمايتك كدليل معلوماتي فقط، فهي لا تستقبل البلاغات أو المكالمات، ولا تتحكم في سرعة استجابة الجهات الرسمية أو مدى توفر خدماتها.
 
 يمكن عرض الأرقام دون اتصال بالإنترنت بعد تحميل المنصة مسبقًا، لكن إجراء المكالمة يتطلب شبكة جوال أو خدمة Wi-Fi Calling.
+
+حقوق الملكية الفكرية
+تعود حقوق اسم حمايتك وشعارها وتصميمها ومحتواها البرمجي والمرئي إلى مالكة المشروع، ما لم يُذكر خلاف ذلك.
+
+لا يجوز نسخ المنصة أو إعادة نشرها أو استخدام اسمها أو شعارها أو تصميمها أو كودها البرمجي أو أي جزء من محتواها لأغراض تجارية أو بطريقة توحي بوجود ارتباط رسمي، إلا بعد الحصول على إذن مسبق.
+
+أسماء الجهات الرسمية وأرقامها وشعاراتها تعود إلى أصحابها، ويقتصر استخدامها داخل المنصة على الأغراض التعريفية والمعلوماتية.
 
 باستخدامك للمنصة، فإنك تقر باطلاعك على شروط الاستخدام وسياسة الخصوصية المتاحتين في أسفل المنصة.
 
@@ -54,8 +63,7 @@ const resources = {
 مشاركة البيانات
 لا نبيع بيانات المستخدمين ولا نشاركها مع معلنين. قد يعالج مزودو الاستضافة والإحصائيات بيانات تقنية محدودة وفق سياساتهم الخاصة وبالقدر اللازم فقط لتشغيل الخدمة وقياسها.
 
-تواصل معنا:
-hemaytak@gmail.com`,
+تواصل معنا: hemaytak@gmail.com`,
     },
   },
   en: {
@@ -76,6 +84,8 @@ hemaytak@gmail.com`,
       termsLink: 'Terms of Use',
       privacyLink: 'Privacy Policy',
       contactLink: 'Contact Us',
+      copyright: '© 2026 Hemaytak. All rights reserved.',
+      copyrightNote: "The platform's name, logo, design, and software content may not be copied or reused without prior permission.",
       termsText: `Hemaytak is an independent informational platform that facilitates access to emergency and public-service numbers in Saudi Arabia. It is not a government entity or an official emergency service.
 
 Users must use these numbers only for their intended purposes, and the user bears responsibility for any false report, prank call, or unlawful use, in accordance with the applicable laws of Saudi Arabia.
@@ -85,6 +95,13 @@ Numbers are verified through official sources and reviewed periodically. Officia
 Hemaytak operates only as an informational directory. It does not receive reports or calls and does not control the response time or availability of official services.
 
 Numbers may be viewed offline after the platform has been loaded successfully, but making a call requires cellular service or Wi-Fi Calling.
+
+Intellectual Property
+The name, logo, design, and software and visual content of Hemaytak belong to the project owner, unless stated otherwise.
+
+The platform may not be copied, republished, or have its name, logo, design, source code, or any part of its content used for commercial purposes or in a way that implies official affiliation, without prior permission.
+
+Names, numbers, and logos of official authorities belong to their respective owners and are used within the platform for identification and informational purposes only.
 
 By using the platform, you acknowledge that you have reviewed the Terms of Use and Privacy Policy available in the platform footer.
 
@@ -108,9 +125,7 @@ When you press "Call Now," the platform opens the phone application on your devi
 Data sharing
 We do not sell user data or share it with advertisers. Hosting and analytics providers may process limited technical data according to their own policies and only as necessary to operate and measure the service.
 
-Contact us:
-hemaytak@gmail.com`,
-    },
+Contact us: hemaytak@gmail.com`,},
   },
 }
 

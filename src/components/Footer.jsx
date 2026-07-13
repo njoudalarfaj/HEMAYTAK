@@ -48,6 +48,13 @@ function Footer() {
         <p className="text-xs text-gray-400 mt-1">{t('sourceNote')}</p>
       </div>
 
+      {/* حقوق الملكية */}
+      <div className="pt-3 border-t border-gray-100">
+        <p className="text-xs font-medium text-gray-400">{t('copyright')}</p>
+        <p className="text-[11px] text-gray-300 mt-1">{t('copyrightNote')}</p>
+      </div>
+
+
       {/* النوافذ — تظهر حسب الحالة */}
       {openModal === 'terms' && (
         <LegalModal
