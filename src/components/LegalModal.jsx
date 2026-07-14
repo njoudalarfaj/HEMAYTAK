@@ -1,19 +1,15 @@
 // نافذة النصوص القانونية: تعرض الشروط أو السياسة فوق الصفحة
 import { X } from 'lucide-react'
 
-// يميز العناوين الفرعية: سطر واحد قصير لا ينتهي بعلامة ترقيم = عنوان
-function isHeading(paragraph) {
-  const clean = paragraph.trim()
-  return (
-    !clean.includes('\n') &&
-    clean.length < 40 &&
-    !/[.،:!؟?]$/.test(clean)
-  )
+// يميز العناوين: سطر قصير لا ينتهي بعلامة ترقيم = عنوان فرعي
+function isHeading(line) {
+  const clean = line.trim()
+  return clean.length > 0 && clean.length < 40 && !/[.،:!؟?]$/.test(clean)
 }
 
 function LegalModal({ title, content, onClose }) {
-  // نقسم النص لفقرات عند الأسطر الفارغة
-  const paragraphs = content.split('\n\n')
+  // نقسم النص لكتل عند الأسطر المزدوجة (بين الأقسام)
+  const blocks = content.split('\n\n')
 
   return (
     <>
@@ -38,27 +34,38 @@ function LegalModal({ title, content, onClose }) {
           </button>
         </div>
 
-        {/* الجسم: فقرات مفككة — عناوين مميزة ونصوص مرتاحة */}
-        <div className="p-6 overflow-y-auto flex flex-col gap-4">
-          {paragraphs.map((paragraph, index) =>
-            isHeading(paragraph) ? (
-              // عنوان فرعي: أغمق وأثقل مع مسافة قبله
-              <h3
-                key={index}
-                className="text-[15px] font-bold text-gray-900 mt-2 first:mt-0"
-              >
-                {paragraph}
-              </h3>
-            ) : (
-              // فقرة عادية: تباعد أسطر مريح
-              <p
-                key={index}
-                className="text-[15px] text-gray-600 leading-loose"
-              >
-                {paragraph}
+        {/* الجسم: كل كتلة نفكها — سطرها الأول إذا كان عنوانًا نميزه، والباقي فقرة */}
+        <div className="p-6 overflow-y-auto flex flex-col gap-5 text-start">
+          {blocks.map((block, index) => {
+            const lines = block.split('\n')
+            const firstLine = lines[0]
+            const rest = lines.slice(1).join('\n')
+
+            // الكتلة تبدأ بعنوان (سطر قصير بدون ترقيم)؟
+            if (isHeading(firstLine)) {
+              return (
+                <div key={index}>
+                  {/* العنوان الفرعي: غامق وأكبر بسطر مستقل */}
+                  <h3 className="text-base font-bold text-gray-900 mb-1.5">
+                    {firstLine}
+                  </h3>
+                  {/* فقرته تحته (إن وجدت) */}
+                  {rest && (
+                    <p className="text-[15px] text-gray-600 leading-loose">
+                      {rest}
+                    </p>
+                  )}
+                </div>
+              )
+            }
+
+            // كتلة عادية بدون عنوان
+            return (
+              <p key={index} className="text-[15px] text-gray-600 leading-loose">
+                {block}
               </p>
             )
-          )}
+          })}
         </div>
       </div>
     </>
